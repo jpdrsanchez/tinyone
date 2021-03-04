@@ -52,28 +52,16 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
     display: block;
-  }
+    border: none;
+    background: none;
+    appearance: none;
 
-  .container {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    width: 100%;
-    padding-left: calc(var(--gutter) * 2);
-    padding-right: calc(var(--gutter) * 2);
-
-    @media (min-width: 576px) {
-      padding-left: var(--gutter);
-      padding-right: var(--gutter);
-      max-width: var(--container-sm);
+    &:focus {
+      outline: none;
     }
 
-    @media (min-width: 768px) {
-      max-width: var(--container-md);
-    }
-
-    @media (min-width: 992px) {
-      max-width: var(--container-lg);
+    &:hover {
+      outline: none;
     }
   }
 `;
