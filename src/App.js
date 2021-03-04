@@ -1,12 +1,12 @@
-import Logo from './components/Logo';
+import Home from './pages/Home';
 import GlobalStyle from './styles/styles';
 
 const App = () => {
   return (
-    <div>
-      <Logo yellow={true} />
+    <>
+      <Home />
       <GlobalStyle />
-    </div>
+    </>
   );
 };
 

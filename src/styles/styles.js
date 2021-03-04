@@ -55,6 +55,7 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     background: none;
     appearance: none;
+    padding: 0;
 
     &:focus {
       outline: none;
