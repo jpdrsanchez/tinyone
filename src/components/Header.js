@@ -5,6 +5,9 @@ import styled from 'styled-components';
 
 const Wrapper = styled.header`
   padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+  position: absolute;
+  width: 100%;
 `;
 
 const HeaderContainer = styled(Container)`
