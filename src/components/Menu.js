@@ -100,6 +100,11 @@ const Menu = () => {
     if (desktop) setOpenMenu(false);
   }, [desktop]);
 
+  useEffect(() => {
+    if (openMenu) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+  }, [openMenu]);
+
   return (
     <>
       <MobileButton
