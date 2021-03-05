@@ -66,6 +66,19 @@ const Intro = () => {
     setPosition(-(width * current));
   }, [current]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((oldCurrent) => {
+        if (oldCurrent === 2) return 0;
+        else return oldCurrent + 1;
+      });
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <Wrapper>
       <Slider ref={slideRef} style={{ transform: `translateX(${position}px)` }}>
