@@ -13,7 +13,9 @@ const List = styled.ul`
 
   li {
     font-size: 2.625rem;
-    margin-right: 2.25rem;
+    &:not(:last-child) {
+      margin-right: 2.25rem;
+    }
   }
 `;
 

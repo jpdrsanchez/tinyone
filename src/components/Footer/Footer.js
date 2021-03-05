@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Title } from '../../styles/typography';
 import Container from '../Container';
+import FooterSocialList from './FooterSocialList';
 import FormFooter from './FormFooter';
 
 const Wrapper = styled.footer`
@@ -68,6 +69,7 @@ const Footer = () => {
           venenatis.
         </p>
         <FormFooter />
+        <FooterSocialList />
         <FooterLists>
           <ul>
             <li>HALOVIETNAM LTD 66, Dang Van ngu, Dong Da Hanoi, Vietnam</li>
