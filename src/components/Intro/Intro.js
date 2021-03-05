@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
 import IntroContent from './IntroContent';
@@ -7,6 +8,7 @@ const Wrapper = styled.section`
   background: var(--yellow);
   padding-top: calc(163px + 0.75rem);
   padding-bottom: 3.125rem;
+  overflow: hidden;
 `;
 
 const IntroContainer = styled(Container)`
@@ -32,7 +34,7 @@ const SliderControls = styled.nav`
     opacity: ${(props) => (props.currentslide ? '1' : '0.5')};
     border-radius: 50%;
 
-    &:first-of-type {
+    &:nth-of-type(${(props) => props.currentSlide + 1}) {
       opacity: 1;
     }
 
@@ -42,17 +44,54 @@ const SliderControls = styled.nav`
   }
 `;
 
+const Slider = styled.div`
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+
+  & > div {
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
+    z-index: 800;
+  }
+`;
+
 const Intro = () => {
+  const [current, setCurrent] = useState(0);
+  const [position, setPosition] = useState(0);
+  const slideRef = useRef();
+
+  useEffect(() => {
+    const { width } = slideRef.current.getBoundingClientRect();
+    setPosition(-(width * current));
+  }, [current]);
+
   return (
     <Wrapper>
-      <IntroContainer>
-        <IntroContent />
-        <IntroTablet />
-      </IntroContainer>
-      <SliderControls>
-        <button></button>
-        <button></button>
-        <button></button>
+      <Slider ref={slideRef} style={{ transform: `translateX(${position}px)` }}>
+        <div>
+          <IntroContainer>
+            <IntroContent />
+            <IntroTablet />
+          </IntroContainer>
+        </div>
+        <div>
+          <IntroContainer>
+            <IntroContent />
+            <IntroTablet />
+          </IntroContainer>
+        </div>
+        <div>
+          <IntroContainer>
+            <IntroContent />
+            <IntroTablet />
+          </IntroContainer>
+        </div>
+      </Slider>
+      <SliderControls currentSlide={current}>
+        <button onClick={() => setCurrent(0)}></button>
+        <button onClick={() => setCurrent(1)}></button>
+        <button onClick={() => setCurrent(2)}></button>
       </SliderControls>
     </Wrapper>
   );
