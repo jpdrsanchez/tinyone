@@ -1,7 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import { normalize } from 'styled-normalize';
 
 const GlobalStyle = createGlobalStyle`
+  ${normalize};
   ${reset};
 
   :root {
@@ -11,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     --black-1: #010101;
     --black-2: #313841;
     --black-3: #555555;
+    --grey: #898989;
 
     /* Typography */
     --main-font: 'PT Sans', sans-serif;
@@ -56,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
     background: none;
     appearance: none;
     padding: 0;
+    font-family: var(--main-font);
 
     &:focus {
       outline: none;
